@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FEMA P-154 Rapid Visual Screening</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #2c3e50;
@@ -27,12 +26,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+            background-color: #f5f7fa;
             padding: 20px;
-            min-height: 100vh;
-        }
-        
-        .container {
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -40,90 +35,37 @@
         header {
             text-align: center;
             margin-bottom: 30px;
-            padding: 25px;
+            padding: 20px;
             background: white;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            background: linear-gradient(120deg, #2c3e50 0%, #4a6491 100%);
-            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
         h1 {
-            margin-bottom: 10px;
-            font-size: 2.5rem;
-        }
-        
-        .header-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        .deployment-steps {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        
-        .steps-title {
             color: var(--primary);
-            text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid var(--secondary);
             padding-bottom: 15px;
-            border-bottom: 2px solid var(--secondary);
         }
         
-        .step {
-            display: flex;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            background: #f8f9fa;
-            border-left: 4px solid var(--secondary);
+        h2 {
+            color: var(--secondary);
+            margin: 20px 0 15px;
         }
         
-        .step-number {
-            background: var(--secondary);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-        
-        .step-content h3 {
+        h3 {
             color: var(--primary);
-            margin-bottom: 10px;
+            margin: 15px 0 10px;
         }
         
-        .step-content p {
-            color: #555;
-        }
-        
-        .code-block {
-            background: #2d3748;
-            color: #cbd5e0;
-            padding: 15px;
-            border-radius: 6px;
-            margin: 15px 0;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-        }
-        
-        .app-container {
+        .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
         
         @media (max-width: 900px) {
-            .app-container {
+            .container {
                 grid-template-columns: 1fr;
             }
         }
@@ -131,98 +73,83 @@
         .card {
             background: white;
             border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             margin-bottom: 20px;
-        }
-        
-        .card-title {
-            color: var(--primary);
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--light);
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             font-weight: 600;
             color: var(--dark);
         }
         
         select, input, textarea {
             width: 100%;
-            padding: 12px 15px;
+            padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 6px;
+            border-radius: 5px;
             font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        
-        select:focus, input:focus, textarea:focus {
-            border-color: var(--secondary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
         }
         
         textarea {
-            min-height: 120px;
+            min-height: 100px;
             resize: vertical;
         }
         
         button {
-            background: var(--secondary);
+            background-color: var(--secondary);
             color: white;
             border: none;
-            padding: 14px 20px;
+            padding: 12px 20px;
             font-size: 16px;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
             width: 100%;
             margin-top: 10px;
-            transition: background 0.3s;
-            font-weight: 600;
+            transition: background-color 0.3s;
         }
         
         button:hover {
-            background: #2980b9;
+            background-color: #2980b9;
         }
         
         .button-secondary {
-            background: var(--warning);
+            background-color: var(--warning);
         }
         
         .button-secondary:hover {
-            background: #e67e22;
+            background-color: #e67e22;
         }
         
         .button-danger {
-            background: var(--danger);
+            background-color: var(--danger);
         }
         
         .button-danger:hover {
-            background: #c0392b;
+            background-color: #c0392b;
         }
         
         .result-container {
             background-color: #e8f5e9;
             border-left: 4px solid var(--success);
-            padding: 25px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 5px;
             margin-top: 20px;
         }
         
         .score {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: bold;
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
-            margin: 20px 0;
+            margin: 15px 0;
         }
         
         .score-acceptable {
@@ -241,345 +168,773 @@
         }
         
         .recommendation {
-            padding: 15px;
-            border-radius: 8px;
+            padding: 10px;
+            border-radius: 5px;
             font-weight: bold;
             text-align: center;
-            margin: 15px 0;
         }
         
         .building-details {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 10px;
+            margin-top: 15px;
         }
         
         .detail-item {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .detail-label {
             font-weight: 600;
             color: #555;
-            font-size: 14px;
         }
         
         .detail-value {
             color: #333;
-            font-size: 16px;
         }
         
         .info-box {
             background-color: #e3f2fd;
             border-left: 4px solid var(--secondary);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
         }
         
-        .github-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+        .tab-container {
+            margin-top: 20px;
         }
         
-        .github-step {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .github-step i {
-            font-size: 48px;
-            color: var(--secondary);
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
             margin-bottom: 15px;
         }
         
-        .github-step h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .github-step p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-        
-        .github-step a {
-            display: inline-block;
-            background: var(--secondary);
-            color: white;
+        .tab {
             padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
         }
         
-        footer {
+        .tab.active {
+            border-bottom: 3px solid var(--secondary);
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .level-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .comparison-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-card h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
             text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            color: #777;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .checkbox-group {
+            margin-bottom: 10px;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .section-title {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin: 15px 0 10px;
+        }
+        
+        .modifier-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .modifier-table th, .modifier-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .modifier-table th {
+            background-color: #f2f2f2;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .radio-group {
+            margin-bottom: 10px;
+        }
+        
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+        
+        .radio-group input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .photo-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .photo-item {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .photo-item button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: auto;
+            padding: 5px;
+            background: rgba(231, 76, 60, 0.8);
+        }
+        
+        .gps-status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        
+        .gps-acquired {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .gps-pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .gps-error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>FEMA P-154 Rapid Visual Screening</h1>
+        <p>Complete Implementation with Photo Capture, GPS, and Data Export</p>
+    </header>
+    
     <div class="container">
-        <header>
-            <h1>FEMA P-154 Rapid Visual Screening</h1>
-            <p class="header-subtitle">Deploy on GitHub Pages - Complete Guide</p>
-        </header>
-        
-        <div class="deployment-steps">
-            <h2 class="steps-title">Deploying to GitHub Pages - Step by Step</h2>
+        <div class="card">
+            <h2>Building Information</h2>
             
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <h3>Create a GitHub Account</h3>
-                    <p>If you don't have one, go to <a href="https://github.com/" target="_blank">github.com</a> and sign up for a free account.</p>
-                </div>
+            <div class="form-group">
+                <label for="buildingName">Building Name/Address:</label>
+                <input type="text" id="buildingName" placeholder="Enter building name or address">
             </div>
             
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <h3>Create a New Repository</h3>
-                    <p>Click the "+" icon in the top right and select "New repository".</p>
-                    <div class="code-block">
-Repository name: fema-p154-screening<br>
-Description: FEMA P-154 Rapid Visual Screening Tool<br>
-Public: ✓ (required for free GitHub Pages)<br>
-Initialize with a README: ✓
+            <div class="form-group">
+                <label for="buildingType">Building Type:</label>
+                <select id="buildingType">
+                    <option value="W1">W1 - Wood, Light Frame</option>
+                    <option value="W1A">W1A - Wood, Light Frame (Alternate)</option>
+                    <option value="W2">W2 - Wood, Commercial and Industrial</option>
+                    <option value="S1">S1 - Steel Moment Frame (MRF)</option>
+                    <option value="S2">S2 - Steel Braced Frame (BR)</option>
+                    <option value="S3">S3 - Steel Light Frame (LF)</option>
+                    <option value="S4">S4 - Steel Frame with Concrete Shear Walls (RC SW)</option>
+                    <option value="S5">S5 - Steel Frame with URM Infill (URM INF)</option>
+                    <option value="C1">C1 - Concrete Moment Frame (MRF)</option>
+                    <option value="C2">C2 - Concrete Shear Wall (SW)</option>
+                    <option value="C3">C3 - Concrete Frame with URM Infill (URM INF)</option>
+                    <option value="PC1">PC1 - Precast Concrete Tilt-Up (TU)</option>
+                    <option value="PC2">PC2 - Precast Concrete Frame</option>
+                    <option value="RM1">RM1 - Reinforced Masonry Bearing Wall (FD/RD)</option>
+                    <option value="RM2">RM2 - Reinforced Masonry with Frame (FD/RD)</option>
+                    <option value="URM">URM - Unreinforced Masonry</option>
+                    <option value="MH">MH - Mobile Home</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="soilType">Soil Type:</label>
+                <select id="soilType">
+                    <option value="A">A - Hard Rock</option>
+                    <option value="B">B - Rock</option>
+                    <option value="C">C - Very Dense Soil/Soft Rock</option>
+                    <option value="D" selected>D - Stiff Soil</option>
+                    <option value="E">E - Soft Soil</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="stories">Number of Stories:</label>
+                <input type="number" id="stories" min="1" value="2">
+            </div>
+            
+            <div class="form-group">
+                <label for="yearBuilt">Year Built:</label>
+                <input type="number" id="yearBuilt" min="1800" max="2023" value="1980">
+            </div>
+            
+            <div class="form-group">
+                <label for="screeningLevel">Screening Level:</label>
+                <select id="screeningLevel">
+                    <option value="LEVEL_1">Level 1 - Basic Screening</option>
+                    <option value="LEVEL_2">Level 2 - Data Collection Screening</option>
+                </select>
+            </div>
+            
+            <div class="section-title">Location Data</div>
+            
+            <div class="form-group">
+                <button id="getLocationBtn" class="button-secondary">Get GPS Coordinates</button>
+                <div id="gpsStatus" class="gps-status gps-pending">GPS not acquired</div>
+                <input type="hidden" id="latitude">
+                <input type="hidden" id="longitude">
+            </div>
+            
+            <div class="section-title">Building Photos</div>
+            
+            <div class="form-group">
+                <button id="takePhotoBtn" class="button-secondary">Take Photo</button>
+                <input type="file" id="photoUpload" accept="image/*" capture="environment" style="display: none;">
+                <div id="photoContainer" class="photo-container"></div>
+            </div>
+            
+            <div id="level1Fields">
+                <div class="section-title">Level 1 - Basic Modifiers</div>
+                
+                <div class="form-group">
+                    <label>Vertical Irregularity:</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="verticalIrregularity" value="none" checked> None</label>
+                    </div>
+                    <div class="radio-group">
+                        <label><input type="radio" name="verticalIrregularity" value="severe"> Severe</label>
+                    </div>
+                    <div class="radio-group">
+                        <label><input type="radio" name="verticalIrregularity" value="moderate"> Moderate</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Plan Irregularity:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="planIrregularity"> Plan Irregularity Present</label>
                     </div>
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                    <h3>Upload the HTML File</h3>
-                    <p>In your new repository, click "Add file" → "Upload files".</p>
-                    <p>Drag and drop your HTML file (named <code>index.html</code> for the main page).</p>
-                    <div class="code-block">
-# Alternatively, use Git commands:<br>
-git init<br>
-git add .<br>
-git commit -m "Initial commit"<br>
-git branch -M main<br>
-git remote add origin https://github.com/your-username/your-repo-name.git<br>
-git push -u origin main
+            <div id="level2Fields" class="hidden">
+                <div class="section-title">Level 2 - Structural Modifiers</div>
+                
+                <div class="form-group">
+                    <label>Vertical Irregularities:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="slopingSiteWood"> Sloping Site (Wood Building)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="slopingSiteNonWood"> Sloping Site (Non-Wood Building)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="crippleWall"> Unbraced Cripple Wall</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="softStoryWood"> Soft Story (Wood Building)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="softStoryNonWood"> Soft Story (Non-Wood Building)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="setbackCantilever"> Setback (Cantilever)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="setbackInboard"> Setback (Inboard)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="shortColumn"> Short Column/Pier</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="splitLevel"> Split Level</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="otherVerticalSevere"> Other Severe Vertical Irregularity</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="otherVerticalModerate"> Other Moderate Vertical Irregularity</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Plan Irregularities:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="torsional"> Torsional Irregularity</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="nonParallel"> Non-Parallel System</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="reentrantCorner"> Reentrant Corner</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="diaphragmOpening"> Diaphragm Opening</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="outOfPlaneOffset"> Out-of-Plane Offset (C1/C2)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="otherPlanIrregularity"> Other Plan Irregularity</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Other Structural Modifiers:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="goodRedundancy"> Good Redundancy</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="poundingFloors"> Pounding (Floors don't align)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="poundingHeight"> Pounding (Height difference)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="poundingEndBlock"> Pounding (End of block)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="kBracing"> K-Bracing (S2 Building)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="flatPlate"> Flat Plate (C1 Building)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="roofWallTies"> Roof-to-Wall Ties (PC1/RM1)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="interiorWalls"> Interior Walls (PC1/RM1)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="cableWalls"> Cable Walls (URM)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="seismicBracing"> Seismic Bracing (MH)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="retrofit"> Comprehensive Seismic Retrofit</label>
+                    </div>
+                </div>
+                
+                <div class="section-title">Non-Structural Hazards</div>
+                
+                <div class="form-group">
+                    <label>Exterior Hazards:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="unbracedParapet"> Unbraced Masonry Parapet/Chimney</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="heavyCladding"> Heavy Cladding/Veneer</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="heavyCanopy"> Heavy Canopy</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="masonryAppendage"> Masonry Appendage</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="hazardousMaterials"> Hazardous Materials Sign</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="adjacentHazards"> Hazards from Adjacent Building</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Interior Hazards:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="hollowPartitions"> Hollow Clay Tile/Brick Partitions</label>
                     </div>
                 </div>
             </div>
             
-            <div class="step">
-                <div class="step-number">4</div>
-                <div class="step-content">
-                    <h3>Enable GitHub Pages</h3>
-                    <p>Go to Settings → Pages → Source → select "main" branch → Save.</p>
-                    <p>Your site will be published at: <code>https://your-username.github.io/your-repo-name</code></p>
-                </div>
+            <div class="form-group">
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" placeholder="Enter any additional observations or comments"></textarea>
             </div>
             
-            <div class="step">
-                <div class="step-number">5</div>
-                <div class="step-content">
-                    <h3>Wait for Deployment</h3>
-                    <p>It may take a few minutes for your site to be available. Refresh the page after a few minutes.</p>
-                </div>
-            </div>
+            <button id="evaluateBtn">Evaluate Building</button>
             
-            <div class="step">
-                <div class="step-number">6</div>
-                <div class="step-content">
-                    <h3>Share the URL</h3>
-                    <p>Once deployed, share the GitHub Pages URL with your inspectors.</p>
-                    <p>Example: <code>https://your-username.github.io/fema-p154-screening</code></p>
-                </div>
-            </div>
-            
-            <div class="github-steps">
-                <div class="github-step">
-                    <i class="fab fa-github"></i>
-                    <h3>Create Repository</h3>
-                    <p>Create a new repository on GitHub for your project</p>
-                    <a href="https://github.com/new" target="_blank">Create Repo</a>
-                </div>
+            <div id="result" class="result-container hidden">
+                <h2>Screening Results</h2>
                 
-                <div class="github-step">
-                    <i class="fas fa-upload"></i>
-                    <h3>Upload Files</h3>
-                    <p>Upload your HTML file to the repository</p>
-                    <a href="https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository" target="_blank">Guide</a>
-                </div>
-                
-                <div class="github-step">
-                    <i class="fas fa-cog"></i>
-                    <h3>Enable Pages</h3>
-                    <p>Enable GitHub Pages in your repository settings</p>
-                    <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site" target="_blank">Guide</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="app-container">
-            <div class="card">
-                <h2 class="card-title">Building Information</h2>
-                
-                <div class="form-group">
-                    <label for="buildingName">Building Name/Address:</label>
-                    <input type="text" id="buildingName" placeholder="Enter building name or address">
-                </div>
-                
-                <div class="form-group">
-                    <label for="buildingType">Building Type:</label>
-                    <select id="buildingType">
-                        <option value="W1">W1 - Wood, Light Frame</option>
-                        <option value="W1A">W1A - Wood, Light Frame (Alternate)</option>
-                        <option value="W2">W2 - Wood, Commercial and Industrial</option>
-                        <option value="S1">S1 - Steel Moment Frame (MRF)</option>
-                        <option value="S2">S2 - Steel Braced Frame (BR)</option>
-                        <option value="S3">S3 - Steel Light Frame (LF)</option>
-                        <option value="S4">S4 - Steel Frame with Concrete Shear Walls (RC SW)</option>
-                        <option value="S5">S5 - Steel Frame with URM Infill (URM INF)</option>
-                        <option value="C1">C1 - Concrete Moment Frame (MRF)</option>
-                        <option value="C2">C2 - Concrete Shear Wall (SW)</option>
-                        <option value="C3">C3 - Concrete Frame with URM Infill (URM INF)</option>
-                        <option value="PC1">PC1 - Precast Concrete Tilt-Up (TU)</option>
-                        <option value="PC2">PC2 - Precast Concrete Frame</option>
-                        <option value="RM1">RM1 - Reinforced Masonry Bearing Wall (FD/RD)</option>
-                        <option value="RM2">RM2 - Reinforced Masonry with Frame (FD/RD)</option>
-                        <option value="URM">URM - Unreinforced Masonry</option>
-                        <option value="MH">MH - Mobile Home</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="soilType">Soil Type:</label>
-                    <select id="soilType">
-                        <option value="A">A - Hard Rock</option>
-                        <option value="B">B - Rock</option>
-                        <option value="C">C - Very Dense Soil/Soft Rock</option>
-                        <option value="D" selected>D - Stiff Soil</option>
-                        <option value="E">E - Soft Soil</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="stories">Number of Stories:</label>
-                    <input type="number" id="stories" min="1" value="2">
-                </div>
-                
-                <div class="form-group">
-                    <label for="yearBuilt">Year Built:</label>
-                    <input type="number" id="yearBuilt" min="1800" max="2023" value="1980">
-                </div>
-                
-                <div class="form-group">
-                    <label for="screeningLevel">Screening Level:</label>
-                    <select id="screeningLevel">
-                        <option value="LEVEL_1">Level 1 - Basic Screening</option>
-                        <option value="LEVEL_2">Level 2 - Data Collection Screening</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="notes">Additional Notes:</label>
-                    <textarea id="notes" placeholder="Enter any additional observations or comments"></textarea>
-                </div>
-                
-                <button id="evaluateBtn">Evaluate Building</button>
-                
-                <div id="result" class="result-container" style="display: none;">
-                    <h2>Screening Results</h2>
-                    
-                    <div class="building-details">
-                        <div class="detail-item">
-                            <div class="detail-label">Building Name/Address:</div>
-                            <div id="resultBuildingName" class="detail-value">-</div>
-                        </div>
-                        
-                        <div class="detail-item">
-                            <div class="detail-label">Building Type:</div>
-                            <div id="resultBuildingType" class="detail-value">-</div>
-                        </div>
-                        
-                        <div class="detail-item">
-                            <div class="detail-label">Soil Type:</div>
-                            <div id="resultSoilType" class="detail-value">-</div>
-                        </div>
-                        
-                        <div class="detail-item">
-                            <div class="detail-label">Screening Level:</div>
-                            <div id="resultScreeningLevel" class="detail-value">-</div>
-                        </div>
-                        
-                        <div class="detail-item">
-                            <div class="detail-label">Basic Score:</div>
-                            <div id="resultBasicScore" class="detail-value">-</div>
-                        </div>
-                        
-                        <div class="detail-item">
-                            <div class="detail-label">Final Score:</div>
-                            <div id="resultFinalScore" class="score">-</div>
-                        </div>
+                <div class="building-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Building Name/Address:</div>
+                        <div id="resultBuildingName" class="detail-value">-</div>
                     </div>
                     
                     <div class="detail-item">
-                        <div class="detail-label">Recommendation:</div>
-                        <div id="resultRecommendation" class="recommendation">-</div>
+                        <div class="detail-label">Building Type:</div>
+                        <div id="resultBuildingType" class="detail-value">-</div>
                     </div>
                     
-                    <div class="info-box">
-                        <p><strong>Next Steps:</strong> Save this assessment using your browser's print function or take a screenshot for your records.</p>
+                    <div class="detail-item">
+                        <div class="detail-label">Soil Type:</div>
+                        <div id="resultSoilType" class="detail-value">-</div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-label">Screening Level:</div>
+                        <div id="resultScreeningLevel" class="detail-value">-</div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-label">GPS Coordinates:</div>
+                        <div id="resultGPS" class="detail-value">-</div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-label">Basic Score:</div>
+                        <div id="resultBasicScore" class="detail-value">-</div>
+                    </div>
+                    
+                    <div id="resultLevel1Container">
+                        <div class="detail-item">
+                            <div class="detail-label">Vertical Irregularity Modifier:</div>
+                            <div id="resultVerticalModifierL1" class="detail-value">-</div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <div class="detail-label">Plan Irregularity Modifier:</div>
+                            <div id="resultPlanModifierL1" class="detail-value">-</div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <div class="detail-label">Pre/Post Code Modifier:</div>
+                            <div id="resultCodeModifier" class="detail-value">-</div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <div class="detail-label">Soil Modifier:</div>
+                            <div id="resultSoilModifier" class="detail-value">-</div>
+                        </div>
+                    </div>
+                    
+                    <div id="resultDataCollectionContainer" class="hidden">
+                        <div class="detail-item">
+                            <div class="detail-label">Vertical Irregularity Modifier (L2):</div>
+                            <div id="resultVerticalModifierL2" class="detail-value">-</div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <div class="detail-label">Plan Irregularity Modifier (L2):</div>
+                            <div id="resultPlanModifierL2" class="detail-value">-</div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <div class="detail-label">Other Modifiers:</div>
+                            <div id="resultOtherModifiers" class="detail-value">-</div>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <div class="detail-label">Adjusted Baseline Score:</div>
+                            <div id="resultAdjustedScore" class="detail-value">-</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="card">
-                <h2 class="card-title">GitHub Pages Benefits</h2>
                 
-                <div class="info-box">
-                    <p><strong>Why GitHub Pages is perfect for this application:</strong></p>
+                <div id="resultFinalScore" class="score">-</div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">Recommendation:</div>
+                    <div id="resultRecommendation" class="recommendation">-</div>
                 </div>
                 
-                <h3>Free Hosting</h3>
-                <p>GitHub Pages offers completely free hosting for static websites with no hidden costs.</p>
-                
-                <h3>Easy Deployment</h3>
-                <p>Simple process to deploy - just upload your HTML file and enable GitHub Pages.</p>
-                
-                <h3>Custom URL</h3>
-                <p>Your app will be available at: <code>your-username.github.io/repository-name</code></p>
-                
-                <h3>Version Control</h3>
-                <p>GitHub keeps track of all changes, so you can revert to previous versions if needed.</p>
-                
-                <h3>Collaboration</h3>
-                <p>Multiple team members can work on the application together.</p>
-                
-                <div class="info-box">
-                    <p><strong>Note:</strong> This application works completely in the browser. No data is sent to any server, making it ideal for sensitive inspections.</p>
+                <div id="nonStructuralResults" class="hidden">
+                    <div class="section-title">Non-Structural Hazards Assessment</div>
+                    <div id="nonStructuralAssessment" class="detail-value">-</div>
                 </div>
                 
-                <h3>Usage Tips for Inspectors</h3>
-                <ul>
-                    <li>Fill in all fields for accurate scoring</li>
-                    <li>Use the notes field to record additional observations</li>
-                    <li>Save results using browser's print or screenshot function</li>
-                    <li>The app works offline once loaded in the browser</li>
-                </ul>
+                <div class="action-buttons">
+                    <button id="saveDataBtn" class="button-secondary">Save to Google Drive</button>
+                    <button id="newAssessmentBtn" class="button-danger">New Assessment</button>
+                </div>
             </div>
         </div>
         
-        <footer>
-            <p>FEMA P-154 Rapid Visual Screening Tool | Deploy on GitHub Pages</p>
-        </footer>
+        <div class="card">
+            <h2>FEMA P-154 Screening Details</h2>
+            
+            <div class="tab-container">
+                <div class="tabs">
+                    <div class="tab active" data-tab="info">Information</div>
+                    <div class="tab" data-tab="scores">Score Values</div>
+                    <div class="tab" data-tab="comparison">Level Comparison</div>
+                </div>
+                
+                <div class="tab-content active" data-tab="info">
+                    <div class="info-box">
+                        <p><strong>FEMA P-154</strong> provides a methodology for rapidly evaluating buildings for potential seismic hazards.</p>
+                    </div>
+                    
+                    <h3>Level 1 Screening</h3>
+                    <p>Basic screening using building type, soil conditions, year built, and observed irregularities. Appropriate for initial assessments.</p>
+                    
+                    <h3>Level 2 Screening</h3>
+                    <p>Includes detailed data collection on specific building deficiencies and non-structural hazards. Provides more accurate assessment for high-risk buildings.</p>
+                    
+                    <h3>Recommendation Thresholds</h3>
+                    <ul>
+                        <li><strong>Score &lt; 2.0:</strong> Acceptable - No immediate action needed</li>
+                        <li><strong>Score 2.0-3.2:</strong> Further evaluation needed</li>
+                        <li><strong>Score &gt; 3.2:</strong> Immediate evaluation needed</li>
+                    </ul>
+                    <p><em>Note: Thresholds may vary based on building type and specific conditions.</em></p>
+                    
+                    <h3>Data Collection Features</h3>
+                    <ul>
+                        <li><strong>Photo Documentation:</strong> Capture building photos for visual reference</li>
+                        <li><strong>GPS Coordinates:</strong> Record precise location data</li>
+                        <li><strong>Google Drive Integration:</strong> Save assessment data to the cloud</li>
+                    </ul>
+                </div>
+                
+                <div class="tab-content" data-tab="scores">
+                    <h3>Basic Scores by Building Type</h3>
+                    <p>These scores are from FEMA P-154 for high seismic hazard areas:</p>
+                    
+                    <table class="modifier-table">
+                        <tr>
+                            <th>Building Type</th>
+                            <th>Basic Score</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>W1</td>
+                            <td>3.2</td>
+                            <td>Wood, Light Frame</td>
+                        </tr>
+                        <tr>
+                            <td>W1A</td>
+                            <td>2.9</td>
+                            <td>Wood, Light Frame (Alternate)</td>
+                        </tr>
+                        <tr>
+                            <td>W2</td>
+                            <td>2.1</td>
+                            <td>Wood, Commercial and Industrial</td>
+                        </tr>
+                        <tr>
+                            <td>S1</td>
+                            <td>2.0</td>
+                            <td>Steel Moment Frame (MRF)</td>
+                        </tr>
+                        <tr>
+                            <td>S2</td>
+                            <td>2.6</td>
+                            <td>Steel Braced Frame (BR)</td>
+                        </tr>
+                        <tr>
+                            <td>S3</td>
+                            <td>2.0</td>
+                            <td>Steel Light Frame (LF)</td>
+                        </tr>
+                        <tr>
+                            <td>S4</td>
+                            <td>1.7</td>
+                            <td>Steel Frame with Concrete Shear Walls</td>
+                        </tr>
+                        <tr>
+                            <td>S5</td>
+                            <td>1.5</td>
+                            <td>Steel Frame with URM Infill</td>
+                        </tr>
+                        <tr>
+                            <td>C1</td>
+                            <td>2.0</td>
+                            <td>Concrete Moment Frame (MRF)</td>
+                        </tr>
+                        <tr>
+                            <td>C2</td>
+                            <td>1.2</td>
+                            <td>Concrete Shear Wall (SW)</td>
+                        </tr>
+                        <tr>
+                            <td>C3</td>
+                            <td>1.6</td>
+                            <td>Concrete Frame with URM Infill</td>
+                        </tr>
+                        <tr>
+                            <td>PC1</td>
+                            <td>1.4</td>
+                            <td>Precast Concrete Tilt-Up</td>
+                        </tr>
+                        <tr>
+                            <td>PC2</td>
+                            <td>1.7</td>
+                            <td>Precast Concrete Frame</td>
+                        </tr>
+                        <tr>
+                            <td>RM1</td>
+                            <td>1.7</td>
+                            <td>Reinforced Masonry Bearing Wall</td>
+                        </tr>
+                        <tr>
+                            <td>RM2</td>
+                            <td>1.0</td>
+                            <td>Reinforced Masonry with Frame</td>
+                        </tr>
+                        <tr>
+                            <td>URM</td>
+                            <td>1.5</td>
+                            <td>Unreinforced Masonry</td>
+                        </tr>
+                        <tr>
+                            <td>MH</td>
+                            <td>1.5</td>
+                            <td>Mobile Home</td>
+                        </tr>
+                    </table>
+                    
+                    <h3>Level 1 Modifiers</h3>
+                    <table class="modifier-table">
+                        <tr>
+                            <th>Modifier Type</th>
+                            <th>Value</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>Severe Vertical Irregularity</td>
+                            <td>-1.0 to -1.2</td>
+                            <td>Based on building type</td>
+                        </tr>
+                        <tr>
+                            <td>Moderate Vertical Irregularity</td>
+                            <td>-0.4 to -0.7</td>
+                            <td>Based on building type</td>
+                        </tr>
+                        <tr>
+                            <td>Plan Irregularity</td>
+                            <td>-0.4 to -1.1</td>
+                            <td>Based on building type</td>
+                        </tr>
+                        <tr>
+                            <td>Pre-Code (before 1975)</td>
+                            <td>-1.1 to -0.1</td>
+                            <td>Based on building type</td>
+                        </tr>
+                        <tr>
+                            <td>Post-Benchmark (after 1990)</td>
+                            <td>+1.1 to +2.4</td>
+                            <td>Based on building type</td>
+                        </tr>
+                        <tr>
+                            <td>Soil Type A or B</td>
+                            <td>+0.1 to +0.6</td>
+                            <td>Based on building type</td>
+                        </tr>
+                        <tr>
+                            <td>Soil Type E (1-3 stories)</td>
+                            <td>-0.4 to +0.2</td>
+                            <td>Based on building type</td>
+                        </tr>
+                        <tr>
+                            <td>Soil Type E (>3 stories)</td>
+                            <td>-0.9 to -0.2</td>
+                            <td>Based on building type</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="tab-content" data-tab="comparison">
+                    <h3>Level 1 vs Level 2 Screening</h3>
+                    
+                    <div class="level-comparison">
+                        <div class="comparison-card">
+                            <h3>Level 1 Screening</h3>
+                            <ul>
+                                <li>Uses basic building type</li>
+                                <li>Applies soil modifier</li>
+                                <li>Considers year built (pre/post code)</li>
+                                <li>Includes basic irregularity assessment</li>
+                                <li>Quick assessment</li>
+                                <li>Good for initial screening</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="comparison-card">
+                            <h3>Level 2 Screening</h3>
+                            <ul>
+                                <li>Includes detailed data collection</li>
+                                <li>Identifies specific structural deficiencies</li>
+                                <li>Evaluates non-structural hazards</li>
+                                <li>More detailed assessment</li>
+                                <li>Higher accuracy</li>
+                                <li>Better for high-risk buildings</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <p><strong>Note:</strong> Level 2 screening adds or subtracts points for observed deficiencies and non-structural hazards, providing a more accurate risk assessment for buildings that may need detailed evaluation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -622,7 +977,44 @@ git push -u origin main
             "RM1": { severe: -0.9, moderate: -0.5, plan: -0.7, preCode: -0.5, postBenchmark: 2.1, soilAB: 0.5, soilE1to3: -0.1, soilE4plus: -0.6 },
             "RM2": { severe: -0.7, moderate: -0.4, plan: -0.4, preCode: 0.0, postBenchmark: 2.1, soilAB: 0.3, soilE1to3: -0.2, soilE4plus: -0.2 },
             "URM": { severe: -0.7, moderate: -0.4, plan: -0.4, preCode: -0.1, postBenchmark: 1.2, soilAB: 0.3, soilE1to3: -0.4, soilE4plus: -0.4 },
-            "MH": { severe: 0, moderate: 0, plan: 0, preCode: -0.1, postBenchmark: 1.2, soilAB: 极市, soilE1to3: -0.4, soilE4plus: -0.4 }
+            "MH": { severe: 0, moderate: 0, plan: 0, preCode: -0.1, postBenchmark: 1.2, soilAB: 0.3, soilE1to3: -0.4, soilE4plus: -0.4 }
+        };
+        
+        // Level 2 Structural Modifiers (from FEMA P-154 Level 2 form)
+        const structuralModifiers = {
+            // Vertical Irregularities
+            "slopingSiteWood": -1.2,
+            "slopingSiteNonWood": -0.3,
+            "crippleWall": -0.6,
+            "softStoryWood": -1.2,
+            "softStoryNonWood": -0.9,
+            "setbackCantilever": -1.0,
+            "setbackInboard": -0.5,
+            "shortColumn": -0.5,
+            "splitLevel": -0.5,
+            "otherVerticalSevere": -1.0,
+            "otherVerticalModerate": -0.5,
+            
+            // Plan Irregularities
+            "torsional": -0.7,
+            "nonParallel": -0.4,
+            "reentrantCorner": -0.4,
+            "diaphragmOpening": -0.2,
+            "outOfPlaneOffset": -0.4,
+            "otherPlanIrregularity": -0.7,
+            
+            // Other Structural Modifiers
+            "goodRedundancy": +0.3,
+            "poundingFloors": -1.0,
+            "poundingHeight": -1.0,
+            "poundingEndBlock": -1.2,
+            "kBracing": -1.0,
+            "flatPlate": -0.4,
+            "roofWallTies": +0.3,
+            "interiorWalls": +0.3,
+            "cableWalls": -0.4,
+            "seismicBracing": +1.2,
+            "retrofit": +1.4
         };
         
         // Soil modifiers
@@ -635,8 +1027,191 @@ git push -u origin main
         };
         
         // DOM elements
+        const screeningLevelSelect = document.getElementById('screeningLevel');
+        const level1Fields = document.getElementById('level1Fields');
+        const level2Fields = document.getElementById('level2Fields');
         const evaluateBtn = document.getElementById('evaluateBtn');
         const resultContainer = document.getElementById('result');
+        const resultLevel1Container = document.getElementById('resultLevel1Container');
+        const resultDataCollectionContainer = document.getElementById('resultDataCollectionContainer');
+        const nonStructuralResults = document.getElementById('nonStructuralResults');
+        const getLocationBtn = document.getElementById('getLocationBtn');
+        const gpsStatus = document.getElementById('gpsStatus');
+        const takePhotoBtn = document.getElementById('takePhotoBtn');
+        const photoUpload = document.getElementById('photoUpload');
+        const photoContainer = document.getElementById('photoContainer');
+        const saveDataBtn = document.getElementById('saveDataBtn');
+        const newAssessmentBtn = document.getElementById('newAssessmentBtn');
+        
+        // Store assessment data
+        let assessmentData = {
+            photos: [],
+            location: null,
+            timestamp: null,
+            results: null
+        };
+        
+        // Toggle Level 2 fields based on selection
+        screeningLevelSelect.addEventListener('change', function() {
+            if (this.value === 'LEVEL_2') {
+                level2Fields.classList.remove('hidden');
+                resultDataCollectionContainer.classList.remove('hidden');
+                resultLevel1Container.classList.add('hidden');
+            } else {
+                level2Fields.classList.add('hidden');
+                resultDataCollectionContainer.classList.add('hidden');
+                resultLevel1Container.classList.remove('hidden');
+                nonStructuralResults.classList.add('hidden');
+            }
+        });
+        
+        // Tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs and contents
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = this.getAttribute('data-tab');
+                document.querySelector(`.tab-content[data-tab="${tabId}"]`).classList.add('active');
+            });
+        });
+        
+        // Get GPS location
+        getLocationBtn.addEventListener('click', function() {
+            gpsStatus.textContent = "Acquiring GPS...";
+            gpsStatus.className = "gps-status gps-pending";
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+                        
+                        document.getElementById('latitude').value = latitude;
+                        document.getElementById('longitude').value = longitude;
+                        
+                        assessmentData.location = {
+                            latitude: latitude,
+                            longitude: longitude
+                        };
+                        
+                        gpsStatus.textContent = `Lat: ${latitude.toFixed(6)}, Long: ${longitude.toFixed(6)}`;
+                        gpsStatus.className = "gps-status gps-acquired";
+                    },
+                    function(error) {
+                        gpsStatus.textContent = `Error: ${error.message}`;
+                        gpsStatus.className = "gps-status gps-error";
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 0
+                    }
+                );
+            } else {
+                gpsStatus.textContent = "Geolocation is not supported by this browser";
+                gpsStatus.className = "gps-status gps-error";
+            }
+        });
+        
+        // Take photo
+        takePhotoBtn.addEventListener('click', function() {
+            photoUpload.click();
+        });
+        
+        photoUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const photoData = e.target.result;
+                    const photoId = 'photo_' + Date.now();
+                    
+                    assessmentData.photos.push({
+                        id: photoId,
+                        data: photoData
+                    });
+                    
+                    const photoItem = document.createElement('div');
+                    photoItem.className = 'photo-item';
+                    photoItem.innerHTML = `
+                        <img src="${photoData}" alt="Building photo">
+                        <button onclick="removePhoto('${photoId}')">X</button>
+                    `;
+                    photoContainer.appendChild(photoItem);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Remove photo
+        window.removePhoto = function(photoId) {
+            assessmentData.photos = assessmentData.photos.filter(photo => photo.id !== photoId);
+            const photoElement = document.querySelector(`.photo-item button[onclick="removePhoto('${photoId}')"]`).parentElement;
+            photoElement.remove();
+        };
+        
+        // Save data to Google Drive
+        saveDataBtn.addEventListener('click', function() {
+            // In a real implementation, this would use the Google Drive API
+            // For this example, we'll simulate the process
+            
+            const dataStr = JSON.stringify(assessmentData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            // Simulate saving to Google Drive
+            alert('Assessment data would be saved to Google Drive in a real implementation. Downloading JSON file instead.');
+            
+            // Download as JSON file (simulation)
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(dataBlob);
+            a.download = `fema_assessment_${new Date().toISOString().replace(/[:.]/g, '-')}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        });
+        
+        // New assessment
+        newAssessmentBtn.addEventListener('click', function() {
+            // Reset form
+            document.getElementById('buildingName').value = '';
+            document.getElementById('buildingType').value = 'W1';
+            document.getElementById('soilType').value = 'D';
+            document.getElementById('stories').value = '2';
+            document.getElementById('yearBuilt').value = '1980';
+            document.getElementById('screeningLevel').value = 'LEVEL_1';
+            document.querySelector('input[name="verticalIrregularity"][value="none"]').checked = true;
+            document.getElementById('planIrregularity').checked = false;
+            document.getElementById('notes').value = '';
+            
+            // Reset GPS
+            document.getElementById('latitude').value = '';
+            document.getElementById('longitude').value = '';
+            gpsStatus.textContent = 'GPS not acquired';
+            gpsStatus.className = 'gps-status gps-pending';
+            
+            // Reset photos
+            assessmentData.photos = [];
+            photoContainer.innerHTML = '';
+            
+            // Hide results
+            resultContainer.classList.add('hidden');
+            
+            // Reset assessment data
+            assessmentData = {
+                photos: [],
+                location: null,
+                timestamp: null,
+                results: null
+            };
+            
+            alert('New assessment started. Form has been reset.');
+        });
         
         // Evaluate building
         evaluateBtn.addEventListener('click', function() {
@@ -646,12 +1221,28 @@ git push -u origin main
             const screeningLevel = document.getElementById('screeningLevel').value;
             const stories = parseInt(document.getElementById('stories').value);
             const yearBuilt = parseInt(document.getElementById('yearBuilt').value);
+            const latitude = document.getElementById('latitude').value;
+            const longitude = document.getElementById('longitude').value;
             
             // Calculate basic score
             const basicScore = basicScores[buildingType] || 0;
             
             // Get Level 1 modifiers for this building type
             const modifiers = level1Modifiers[buildingType] || {};
+            
+            // Calculate Level 1 modifiers
+            let verticalModifierL1 = 0;
+            const verticalIrregularity = document.querySelector('input[name="verticalIrregularity"]:checked').value;
+            if (verticalIrregularity === 'severe') {
+                verticalModifierL1 = modifiers.severe || 0;
+            } else if (verticalIrregularity === 'moderate') {
+                verticalModifierL1 = modifiers.moderate || 0;
+            }
+            
+            let planModifierL1 = 0;
+            if (document.getElementById('planIrregularity').checked) {
+                planModifierL1 = modifiers.plan || 0;
+            }
             
             // Calculate pre/post code modifier
             let codeModifier = 0;
@@ -677,11 +1268,64 @@ git push -u origin main
             }
             
             // For Level 1 screening
-            let finalScore = (basicScore + codeModifier + soilAdditiveModifier) * soilModifierValue;
+            let finalScore = (basicScore + verticalModifierL1 + planModifierL1 + codeModifier + soilAdditiveModifier) * soilModifierValue;
             
             // Apply minimum score constraint
-            const minScore = 1.0;
+            const minScore = 1.0; // Default minimum, would vary by building type in full implementation
             finalScore = Math.max(finalScore, minScore);
+            
+            let verticalModifierL2 = 0;
+            let planModifierL2 = 0;
+            let otherModifiers = 0;
+            
+            // For Level 2 screening
+            if (screeningLevel === 'LEVEL_2') {
+                // Calculate structural modifiers
+                verticalModifierL2 = calculateModifiers([
+                    'slopingSiteWood', 'slopingSiteNonWood', 'crippleWall', 
+                    'softStoryWood', 'softStoryNonWood', 'setbackCantilever',
+                    'setbackInboard', 'shortColumn', 'splitLevel',
+                    'otherVerticalSevere', 'otherVerticalModerate'
+                ]);
+                
+                // Cap vertical modifier at -1.2 as per FEMA guidelines
+                verticalModifierL2 = Math.max(verticalModifierL2, -1.2);
+                
+                planModifierL2 = calculateModifiers([
+                    'torsional', 'nonParallel', 'reentrantCorner',
+                    'diaphragmOpening', 'outOfPlaneOffset', 'otherPlanIrregularity'
+                ]);
+                
+                // Cap plan modifier at -1.1 as per FEMA guidelines
+                planModifierL2 = Math.max(planModifierL2, -1.1);
+                
+                otherModifiers = calculateModifiers([
+                    'goodRedundancy', 'poundingFloors', 'poundingHeight',
+                    'poundingEndBlock', 'kBracing', 'flatPlate', 'roofWallTies',
+                    'interiorWalls', 'cableWalls', 'seismicBracing', 'retrofit'
+                ]);
+                
+                // Calculate adjusted baseline score
+                const adjustedBaselineScore = basicScore + codeModifier - verticalModifierL1 - planModifierL1;
+                
+                // Calculate final score with all modifiers
+                finalScore = (adjustedBaselineScore + verticalModifierL2 + planModifierL2 + otherModifiers + soilAdditiveModifier) * soilModifierValue;
+                
+                // Apply minimum score constraint
+                finalScore = Math.max(finalScore, minScore);
+                
+                // Check for non-structural hazards
+                const hasNonStructuralHazards = checkNonStructuralHazards();
+                nonStructuralResults.classList.remove('hidden');
+                
+                if (hasNonStructuralHazards) {
+                    document.getElementById('nonStructuralAssessment').textContent = 
+                        "Non-structural hazards identified. Detailed non-structural evaluation recommended.";
+                } else {
+                    document.getElementById('nonStructuralAssessment').textContent = 
+                        "No significant non-structural hazards identified.";
+                }
+            }
             
             // Determine recommendation
             let recommendation, recommendationClass;
@@ -696,6 +1340,30 @@ git push -u origin main
                 recommendationClass = "score-immediate";
             }
             
+            // Store assessment data
+            assessmentData.timestamp = new Date().toISOString();
+            assessmentData.results = {
+                buildingName,
+                buildingType,
+                soilType,
+                screeningLevel,
+                stories,
+                yearBuilt,
+                latitude,
+                longitude,
+                basicScore,
+                verticalModifierL1,
+                planModifierL1,
+                codeModifier,
+                soilModifierValue,
+                soilAdditiveModifier,
+                verticalModifierL2,
+                planModifierL2,
+                otherModifiers,
+                finalScore,
+                recommendation
+            };
+            
             // Display results
             document.getElementById('resultBuildingName').textContent = buildingName || 'Not specified';
             document.getElementById('resultBuildingType').textContent = 
@@ -704,7 +1372,27 @@ git push -u origin main
                 document.getElementById('soilType').options[document.getElementById('soilType').selectedIndex].text;
             document.getElementById('resultScreeningLevel').textContent = 
                 document.getElementById('screeningLevel').options[document.getElementById('screeningLevel').selectedIndex].text;
+                
+            if (latitude && longitude) {
+                document.getElementById('resultGPS').textContent = `Lat: ${Number(latitude).toFixed(6)}, Long: ${Number(longitude).toFixed(6)}`;
+            } else {
+                document.getElementById('resultGPS').textContent = 'Not acquired';
+            }
+                
             document.getElementById('resultBasicScore').textContent = basicScore.toFixed(2);
+            
+            if (screeningLevel === 'LEVEL_1') {
+                document.getElementById('resultVerticalModifierL1').textContent = verticalModifierL1.toFixed(2);
+                document.getElementById('resultPlanModifierL1').textContent = planModifierL1.toFixed(2);
+                document.getElementById('resultCodeModifier').textContent = codeModifier.toFixed(2);
+                document.getElementById('resultSoilModifier').textContent = `× ${soilModifierValue.toFixed(1)} (additive: ${soilAdditiveModifier.toFixed(2)})`;
+            } else {
+                document.getElementById('resultVerticalModifierL2').textContent = verticalModifierL2.toFixed(2);
+                document.getElementById('resultPlanModifierL2').textContent = planModifierL2.toFixed(2);
+                document.getElementById('resultOtherModifiers').textContent = otherModifiers.toFixed(2);
+                document.getElementById('resultAdjustedScore').textContent = (basicScore + codeModifier - verticalModifierL1 - planModifierL1).toFixed(2);
+                document.getElementById('resultSoilModifier').textContent = `× ${soilModifierValue.toFixed(1)} (additive: ${soilAdditiveModifier.toFixed(2)})`;
+            }
             
             const finalScoreElement = document.getElementById('resultFinalScore');
             finalScoreElement.textContent = `Final Score: ${finalScore.toFixed(2)}`;
@@ -713,11 +1401,30 @@ git push -u origin main
             document.getElementById('resultRecommendation').textContent = recommendation;
             document.getElementById('resultRecommendation').className = `recommendation ${recommendationClass}`;
             
-            resultContainer.style.display = 'block';
-            
-            // Scroll to results
-            resultContainer.scrollIntoView({ behavior: 'smooth' });
+            resultContainer.classList.remove('hidden');
         });
+        
+        // Helper function to calculate modifiers from checkboxes
+        function calculateModifiers(keys) {
+            let total = 0;
+            keys.forEach(key => {
+                if (document.getElementById(key).checked) {
+                    total += structuralModifiers[key] || 0;
+                }
+            });
+            return total;
+        }
+        
+        // Check for non-structural hazards
+        function checkNonStructuralHazards() {
+            const hazards = [
+                'unbracedParapet', 'heavyCladding', 'heavyCanopy',
+                'masonryAppendage', 'hazardousMaterials', 'adjacentHazards',
+                'hollowPartitions'
+            ];
+            
+            return hazards.some(hazard => document.getElementById(hazard).checked);
+        }
     </script>
 </body>
 </html>
